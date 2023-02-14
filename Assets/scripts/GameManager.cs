@@ -1,23 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public AudioSource theMusic;
     public bool startPlaying;
-
     public BeatScroller theBS;
-
     public static GameManager instance;
-
-
     // Start is called before the first frame update
     void Start()
     {
+        startPlaying = false;
         instance = this;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -29,6 +26,7 @@ public class GameManager : MonoBehaviour
                 theBS.hasStarted = true;
 
                 theMusic.Play();
+                Debug.Log("Playing");
             }
         }
     }
